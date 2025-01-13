@@ -63,14 +63,13 @@ pipeline {
         stage('Deploy Application') {
             steps {
                 script {
-                    // Deploy the application as a Docker container
                     sh """
-                    docker stop python-flask-application-using-Jenkins || true && docker rm python-flask-application-using-Jenkins || true
+                    # Stop and remove the container if it exists
+                    docker ps -a --filter "name=python-flask-application-using-jenkins" --format "{{.ID}}" | xargs -r docker rm -f
+                    
+                    # Run the application container
                     docker run -d -p 5000:5000 --name python-flask-application-using-jenkins ${DOCKER_IMAGE_NAME}:latest
                     """
-                    //docker run -d -p 5000:5000 --name python-flask-application-using-jenkins devcodelearn/python-flask-application-using-jenkins:latest
-                    
-
                 }
             }
         }
