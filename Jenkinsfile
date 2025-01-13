@@ -37,7 +37,7 @@ pipeline {
                 script {
                     // Build Docker image
                     //dockerImage = docker.build("${DOCKER_IMAGE_NAME}:${env.BUILD_ID}")
-                    dockerImage = docker.build('devcodelearn/python-flask-application-using-jenkins')
+                    dockerImage = docker.build('zainhanif73/python-flask-application-using-jenkins')
                     // sh 'sudo docker build -t devcodelearn/python-flask-application-using-jenkins .'
                 }
             }
