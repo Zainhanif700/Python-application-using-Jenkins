@@ -5,8 +5,6 @@ pipeline {
         DOCKER_IMAGE_NAME = 'devcodelearn/python-flask-application-using-jenkins'
     }
 
-    
-
     stages {
         stage('Clone Repository') {
             steps {
